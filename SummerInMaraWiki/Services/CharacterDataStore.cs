@@ -27,18 +27,13 @@ namespace SummerInMaraWiki.Services
         {
             if (await GetItemByCodeAsync(item.Code) == null)
             {
-                if (string.IsNullOrWhiteSpace(item.Id))
-                {
-                    item.Id = Guid.NewGuid().ToString();
-                    return await Database.InsertAsync(item);
-                }
-                else
-                {
-                    return await Database.UpdateAsync(item);
-                }
+                item.Id = Guid.NewGuid().ToString();
+                return await Database.InsertAsync(item);
             }
-
-            return 0;
+            else
+            {
+                return await Database.UpdateAsync(item);
+            }
         }
 
         public async Task<int> DeleteItemAsync(string id)

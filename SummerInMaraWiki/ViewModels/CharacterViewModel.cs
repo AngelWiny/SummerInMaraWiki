@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using SummerInMaraWiki.Models;
 using SummerInMaraWiki.Services;
 using SummerInMaraWiki.ViewModels;
+using SummerInMaraWiki.Views.Character;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(CharacterViewModel))]
@@ -16,6 +17,10 @@ namespace SummerInMaraWiki.ViewModels
         {
             FillDatabase();
         }
+
+        public Command<Character> SelectCharacterCommand => new Command<Character>(ViewCharacterDetail);
+
+
 
         private List<Character> _characters;
 
@@ -29,8 +34,20 @@ namespace SummerInMaraWiki.ViewModels
 
 
 
+        private async void ViewCharacterDetail(Character SelectedCharacter)
+        {
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+            await Shell.Current.GoToAsync($"{nameof(CharacterDetailPage)}?{nameof(CharacterDetailViewModel.CharacterId)}={SelectedCharacter.Id}");
+            IsBusy = false;
+        }
+
         private async void FillDatabase()
         {
+            IsBusy = true;
+
             CharacterDS = await CharacterDataStore.Instance;
             await CharacterDS.SaveItemAsync(new Character()
             {
@@ -197,8 +214,8 @@ namespace SummerInMaraWiki.ViewModels
             });
 
 
-
             Characters = await CharacterDS.GetItemsAsync();
+            IsBusy = false;
         }
     }
 }

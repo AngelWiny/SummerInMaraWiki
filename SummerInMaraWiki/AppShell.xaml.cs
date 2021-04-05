@@ -1,5 +1,6 @@
 ﻿using SummerInMaraWiki.ViewModels;
 using SummerInMaraWiki.Views;
+using SummerInMaraWiki.Views.Character;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
@@ -11,7 +12,7 @@ namespace SummerInMaraWiki
         public AppShell()
         {
             InitializeComponent();
-            //Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
+            Routing.RegisterRoute(nameof(CharacterDetailPage), typeof(CharacterDetailPage));
         }
 
     }
