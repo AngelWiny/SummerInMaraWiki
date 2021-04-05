@@ -11,15 +11,28 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding Characters}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ImageCell
-                        ImageSource="{Binding Picture}"
-                        Text="{Binding Name}"
-                        TextColor="Black" />
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <ScrollView Orientation="Vertical">
+            <FlexLayout
+                AlignItems="Center"
+                BindableLayout.ItemsSource="{Binding Characters}"
+                JustifyContent="SpaceEvenly"
+                Wrap="Wrap">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="10">
+                            <Image
+                                HeightRequest="100"
+                                Source="{Binding Picture}"
+                                WidthRequest="100" />
+                            <Label
+                                HorizontalOptions="CenterAndExpand"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding Name}" />
+
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </FlexLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

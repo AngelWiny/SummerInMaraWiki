@@ -29,7 +29,7 @@ namespace SummerInMaraWiki.Services
             {
                 if (string.IsNullOrWhiteSpace(item.Id))
                 {
-                    item.Id = new Guid().ToString();
+                    item.Id = Guid.NewGuid().ToString();
                     return await Database.InsertAsync(item);
                 }
                 else
