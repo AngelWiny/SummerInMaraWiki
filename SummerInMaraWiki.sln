@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SummerInMaraWiki.Android", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SummerInMaraWiki.iOS", "SummerInMaraWiki.iOS\SummerInMaraWiki.iOS.csproj", "{55A57BA8-3DCD-40E1-A783-7E257024A0A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SummerInMaraWiki", "SummerInMaraWiki\SummerInMaraWiki.csproj", "{A9846654-5DEA-4E6F-98C6-925D1D061133}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SummerInMaraWiki", "SummerInMaraWiki\SummerInMaraWiki.csproj", "{A9846654-5DEA-4E6F-98C6-925D1D061133}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

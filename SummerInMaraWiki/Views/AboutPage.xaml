@@ -3,7 +3,7 @@
     x:Class="SummerInMaraWiki.Views.AboutPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:vm="clr-namespace:SummerInMaraWiki.ViewModels">
+    xmlns:fonts="clr-namespace:SummerInMaraWiki.Fonts;assembly=SummerInMaraWiki">
 
 
     <ContentPage.Resources>
@@ -40,6 +40,23 @@
                 Spacing="10">
                 <Label FontSize="Title" Text="Developed by:" />
                 <Label Text="agarza" />
+                <Label
+                    FontFamily="brands"
+                    FontSize="Title"
+                    Text="&#xf26e;" />
+                <Label
+                    FontFamily="regular"
+                    FontSize="Title"
+                    Text="&#xf35b;" />
+                <Label
+                    FontFamily="solid"
+                    FontSize="Title"
+                    Text="&#xf35b;" />
+                <Label
+                    FontFamily="solid"
+                    FontSize="Title"
+                    Text="&#xf05a;" />
+               
             </StackLayout>
         </ScrollView>
     </Grid>

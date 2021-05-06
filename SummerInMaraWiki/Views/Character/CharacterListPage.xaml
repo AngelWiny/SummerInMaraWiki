@@ -4,7 +4,6 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:VM="clr-namespace:SummerInMaraWiki.ViewModels"
-    xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
     Title="Personajes">
 
     <ContentPage.BindingContext>
@@ -32,10 +31,14 @@
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
                             <StackLayout Margin="10">
-                                <Image
-                                    HeightRequest="100"
-                                    Source="{Binding Picture}"
-                                    WidthRequest="100" />
+                                <Image HeightRequest="100" WidthRequest="100">
+                                    <Image.Source>
+                                        <UriImageSource
+                                            CacheValidity="30"
+                                            CachingEnabled="True"
+                                            Uri="{Binding Picture}" />
+                                    </Image.Source>
+                                </Image>
                                 <Label
                                     HorizontalOptions="CenterAndExpand"
                                     HorizontalTextAlignment="Center"
@@ -51,10 +54,6 @@
                     </BindableLayout.ItemTemplate>
                 </FlexLayout>
             </ScrollView>
-            <controls:MTAdView
-                Grid.Row="1"
-                Grid.Column="0"
-                AdsId="ca-app-pub-1059062328035725/4186489927" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

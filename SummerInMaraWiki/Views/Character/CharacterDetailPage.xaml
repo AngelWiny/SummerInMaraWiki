@@ -12,7 +12,14 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Image Source="{Binding Character.Picture}" />
+            <Image HeightRequest="200" WidthRequest="200">
+                <Image.Source>
+                    <UriImageSource
+                        CacheValidity="30"
+                        CachingEnabled="True"
+                        Uri="{Binding Character.Picture}" />
+                </Image.Source>
+            </Image>
             <Label Text="{Binding Character.Name}" />
         </StackLayout>
     </ContentPage.Content>

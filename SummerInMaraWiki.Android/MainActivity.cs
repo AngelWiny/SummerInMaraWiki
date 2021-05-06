@@ -4,7 +4,6 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
-using Android.Gms.Ads;
 
 namespace SummerInMaraWiki.Droid
 {
@@ -14,7 +13,6 @@ namespace SummerInMaraWiki.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            MobileAds.Initialize(ApplicationContext, "ca-app-pub-1059062328035725~1119141751");
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());

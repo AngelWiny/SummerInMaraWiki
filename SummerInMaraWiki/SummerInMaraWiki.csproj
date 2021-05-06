@@ -6,7 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MarcTron.Admob" Version="1.6.1" />
+    <None Remove="Fonts\brands.ttf" />
+    <None Remove="Fonts\regular.ttf" />
+    <None Remove="Fonts\solid.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\brands.ttf" />
+    <EmbeddedResource Include="Fonts\regular.ttf" />
+    <EmbeddedResource Include="Fonts\solid.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
