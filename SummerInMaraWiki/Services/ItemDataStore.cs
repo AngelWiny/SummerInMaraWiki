@@ -7,17 +7,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-[assembly: Dependency(typeof(CharacterDataStore))]
+[assembly: Dependency(typeof(ItemDataStore))]
 namespace SummerInMaraWiki.Services
 {
-    public class CharacterDataStore : SQLiteManager
+    public class ItemDataStore : SQLiteManager
     {
-        public CharacterDataStore()
+
+        public ItemDataStore()
         {
 
         }
 
-        public async Task<int> SaveItemAsync(Character item)
+        public async Task<int> SaveItemAsync(Item item)
         {
             if (await GetItemByCodeAsync(item.Code) == null)
             {
@@ -34,14 +35,16 @@ namespace SummerInMaraWiki.Services
             return await Database.DeleteAsync(await GetItemByCodeAsync(code));
         }
 
-        public async Task<Character> GetItemByCodeAsync(int code)
+        public async Task<Item> GetItemByCodeAsync(int code)
         {
-            return await Database.Table<Character>().Where(i => i.Code == code).FirstOrDefaultAsync();
+            return await Database.Table<Item>().Where(i => i.Code == code).FirstOrDefaultAsync();
         }
 
-        public async Task<List<Character>> GetItemsAsync()
+        public async Task<List<Item>> GetItemsAsync()
         {
-            return await Database.Table<Character>().ToListAsync();
+            return await Database.Table<Item>().ToListAsync();
         }
+
+
     }
 }

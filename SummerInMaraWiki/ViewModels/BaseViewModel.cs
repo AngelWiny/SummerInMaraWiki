@@ -14,16 +14,8 @@ namespace SummerInMaraWiki.ViewModels
         {
         }
 
-
-
-        public CharacterDataStore CharacterDS;
-
-
-
         bool isBusy = false;
         string title = string.Empty;
-
-
 
         public bool IsBusy
         {

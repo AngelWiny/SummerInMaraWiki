@@ -15,15 +15,12 @@ namespace SummerInMaraWiki.ViewModels
     {
         public CharacterViewModel()
         {
+            CharacterDS = DependencyService.Get<CharacterDataStore>();
             FillDatabase();
         }
 
-        public Command<Character> SelectCharacterCommand => new Command<Character>(ViewCharacterDetail);
-
-
-
+        private CharacterDataStore CharacterDS { get; set; }
         private List<Character> _characters;
-
 
 
         public List<Character> Characters
@@ -33,6 +30,8 @@ namespace SummerInMaraWiki.ViewModels
         }
 
 
+        public Command<Character> SelectCharacterCommand => new Command<Character>(ViewCharacterDetail);
+
 
         private async void ViewCharacterDetail(Character SelectedCharacter)
         {
@@ -40,7 +39,7 @@ namespace SummerInMaraWiki.ViewModels
                 return;
 
             IsBusy = true;
-            await Shell.Current.GoToAsync($"{nameof(CharacterDetailPage)}?{nameof(CharacterDetailViewModel.CharacterId)}={SelectedCharacter.Id}");
+            await Shell.Current.GoToAsync($"{nameof(CharacterDetailPage)}?{nameof(CharacterDetailViewModel.CharacterCode)}={SelectedCharacter.Code}");
             IsBusy = false;
         }
 
@@ -48,7 +47,7 @@ namespace SummerInMaraWiki.ViewModels
         {
             IsBusy = true;
 
-            CharacterDS = await CharacterDataStore.Instance;
+
             await CharacterDS.SaveItemAsync(new Character()
             {
                 Code = 1,

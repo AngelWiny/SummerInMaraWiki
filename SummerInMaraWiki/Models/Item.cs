@@ -5,8 +5,7 @@ using System.Text;
 
 namespace SummerInMaraWiki.Models
 {
-    public class Character:BaseModel
+    public class Item : BaseModel
     {
-      
     }
 }
