@@ -7,6 +7,7 @@ namespace SummerInMaraWiki.Models
 {
     public class BaseModel
     {
+        [PrimaryKey]
         public int Code { get; set; }
         public string Name { get; set; }
         public string Picture { get; set; }

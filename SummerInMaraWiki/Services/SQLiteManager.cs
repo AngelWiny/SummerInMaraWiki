@@ -21,6 +21,14 @@ namespace SummerInMaraWiki.Services
         {
             await Database.CreateTableAsync<Character>();
             await Database.CreateTableAsync<Item>();
+
+            await Clear();
+        }
+
+        private async Task Clear()
+        {
+            await Database.DeleteAllAsync<Character>();
+            await Database.DeleteAllAsync<Item>();
         }
     }
 }

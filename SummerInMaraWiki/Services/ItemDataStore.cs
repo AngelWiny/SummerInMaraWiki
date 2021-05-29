@@ -45,6 +45,5 @@ namespace SummerInMaraWiki.Services
             return await Database.Table<Item>().ToListAsync();
         }
 
-
     }
 }

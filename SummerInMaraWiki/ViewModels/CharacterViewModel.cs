@@ -47,7 +47,6 @@ namespace SummerInMaraWiki.ViewModels
         {
             IsBusy = true;
 
-
             await CharacterDS.SaveItemAsync(new Character()
             {
                 Code = 1,
