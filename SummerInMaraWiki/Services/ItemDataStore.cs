@@ -1,5 +1,4 @@
-﻿using SQLite;
-using SummerInMaraWiki.Models;
+﻿using SummerInMaraWiki.Models;
 using SummerInMaraWiki.Services;
 using System;
 using System.Collections.Generic;
@@ -8,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-[assembly: Dependency(typeof(ItemDataStore))]
 namespace SummerInMaraWiki.Services
 {
     public class ItemDataStore : IDataStore<Item>
