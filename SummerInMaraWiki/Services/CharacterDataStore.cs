@@ -1,17 +1,20 @@
 ﻿using SummerInMaraWiki.Models;
+using SummerInMaraWiki.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
+[assembly: Dependency(typeof(CharacterDataStore))]
 namespace SummerInMaraWiki.Services
 {
-    public class CharacterDataStore : IDataStore<Character>
+    public class CharacterDataStore : SQLiteManager
     {
         readonly List<Character> characters;
-        public CharacterDataStore()
-        {
+
+
             characters = new List<Character>()
             {
                 new Character(1,"Koa","https://static.wikia.nocookie.net/summer-in-mara/images/2/2b/Avatar_Koa_1.png/revision/latest/scale-to-width-down/400?cb=20200615141137"),
@@ -42,16 +45,24 @@ namespace SummerInMaraWiki.Services
                 new Character(26,"Mun","https://static.wikia.nocookie.net/summer-in-mara/images/f/f7/Mun.png/revision/latest/scale-to-width-down/512?cb=20200617173414"),
                 new Character(27,"Caleb","https://static.wikia.nocookie.net/summer-in-mara/images/3/32/Caleb.png/revision/latest/scale-to-width-down/512?cb=20200617173401"),
             };
-        }
-
+        public async Task<int> DeleteItemAsync(string id)
+        {
         public async Task<Character> GetItemByIdAsync(int id)
         {
             return await Task.FromResult(characters.FirstOrDefault(x => x.Id == id));
         }
 
         public async Task<List<Character>> GetItemsAsync()
-        {
+        }
             return await Task.FromResult(characters);
+        public Task<Character> GetItemByCodeAsync(int code)
+        {
+            return Database.Table<Character>().Where(i => i.Code == code).FirstOrDefaultAsync();
+        }
+
+        public Task<List<Character>> GetItemsAsync(bool forceRefresh = false)
+        {
+            return Database.Table<Character>().ToListAsync();
         }
     }
 }

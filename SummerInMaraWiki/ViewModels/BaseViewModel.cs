@@ -24,8 +24,6 @@ namespace SummerInMaraWiki.ViewModels
         bool isBusy = false;
         string title = string.Empty;
 
-
-
         public bool IsBusy
         {
             get { return isBusy; }

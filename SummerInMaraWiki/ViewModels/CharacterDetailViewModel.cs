@@ -8,12 +8,12 @@ using Xamarin.Forms;
 
 namespace SummerInMaraWiki.ViewModels
 {
-    [QueryProperty(nameof(CharacterId), nameof(CharacterId))]
+    [QueryProperty(nameof(CharacterCode), nameof(CharacterCode))]
     public class CharacterDetailViewModel : BaseViewModel
     {
         public CharacterDetailViewModel()
         {
-
+            CharacterDS = DependencyService.Get<CharacterDataStore>();
         }
 
         private int _characterId;
@@ -21,14 +21,13 @@ namespace SummerInMaraWiki.ViewModels
 
         public int CharacterId
         {
-            get { return _characterId; }
+            get { return _characterCode; }
             set
             {
-                SetProperty(ref _characterId, value);
+                SetProperty(ref _characterCode, value);
                 FindCharacter();
             }
         }
-
         public Character Character
         {
             get { return _character; }
@@ -41,7 +40,6 @@ namespace SummerInMaraWiki.ViewModels
         {
             if (IsBusy)
                 return;
-
             IsBusy = true;
 
             Character = await CharacterDS.GetItemByIdAsync(CharacterId);
