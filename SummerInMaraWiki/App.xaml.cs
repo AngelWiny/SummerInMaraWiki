@@ -12,6 +12,8 @@ namespace SummerInMaraWiki
         public App()
         {
             InitializeComponent();
+            DependencyService.Register<CharacterDataStore>();
+            DependencyService.Register<ItemDataStore>();
             MainPage = new AppShell();
         }
 

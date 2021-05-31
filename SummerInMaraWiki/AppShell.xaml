@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:character="clr-namespace:SummerInMaraWiki.Views.Character"
+    xmlns:item="clr-namespace:SummerInMaraWiki.Views.Item"
     xmlns:local="clr-namespace:SummerInMaraWiki.Views"
     Title="SummerInMaraWiki">
 
@@ -15,6 +16,14 @@
             Title="Personajes"
             ContentTemplate="{DataTemplate character:CharacterListPage}"
             Icon="icon_feed.png" />
+        <!--<Tab Title="Objetos" Icon="">
+            <ShellContent Title="Granja" ContentTemplate="{DataTemplate item:FarmingListPage}" />
+            <ShellContent Title="Mina" ContentTemplate="{DataTemplate item:MiningListPage}" />
+        </Tab>-->
+        <ShellContent
+            Title="Objetos"
+            ContentTemplate="{DataTemplate item:ItemListPage}"
+            Icon="" />
         <ShellContent
             Title="Acerca de"
             ContentTemplate="{DataTemplate local:AboutPage}"

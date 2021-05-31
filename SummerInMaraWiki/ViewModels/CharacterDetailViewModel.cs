@@ -16,10 +16,10 @@ namespace SummerInMaraWiki.ViewModels
 
         }
 
-        private string _characterId;
+        private int _characterId;
         private Character _character;
 
-        public string CharacterId
+        public int CharacterId
         {
             get { return _characterId; }
             set
@@ -44,7 +44,6 @@ namespace SummerInMaraWiki.ViewModels
 
             IsBusy = true;
 
-            CharacterDS = await CharacterDataStore.Instance;
             Character = await CharacterDS.GetItemByIdAsync(CharacterId);
 
             IsBusy = false;

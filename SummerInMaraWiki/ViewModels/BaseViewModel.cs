@@ -16,7 +16,8 @@ namespace SummerInMaraWiki.ViewModels
 
 
 
-        public CharacterDataStore CharacterDS;
+        public IDataStore<Character> CharacterDS => DependencyService.Get<IDataStore<Character>>();
+        public IDataStore<Item> ItemDS => DependencyService.Get<IDataStore<Item>>();
 
 
 

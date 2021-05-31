@@ -56,7 +56,7 @@
                     FontFamily="solid"
                     FontSize="Title"
                     Text="&#xf05a;" />
-               
+
             </StackLayout>
         </ScrollView>
     </Grid>

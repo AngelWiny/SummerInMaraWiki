@@ -1,16 +1,19 @@
-﻿using SQLite;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace SummerInMaraWiki.Models
 {
-    public class Character
+    public class Character : BaseModel
     {
-        [PrimaryKey]
-        public string Id { get; set; }
-        public int Code { get; set; }
-        public string Name { get; set; }
-        public string Picture { get; set; }
+        public Character(int id, string name, string picture) : base(id, name, picture)
+        {
+
+        }
+
+        internal static Character FirstOrDefault(Func<object, bool> p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
