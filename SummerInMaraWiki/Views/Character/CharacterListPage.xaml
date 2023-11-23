@@ -4,7 +4,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:VM="clr-namespace:SummerInMaraWiki.ViewModels"
-    Title="Personajes">
+    Title="Secundario"
+    BackgroundColor="{StaticResource Quarter}">
 
     <ContentPage.BindingContext>
         <VM:CharacterViewModel />
